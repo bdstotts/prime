@@ -1,0 +1,53 @@
+.info {
+    background-color: lightgray;
+    display: flex;
+    width: 300px;
+    max-width: 300px;
+    margin-bottom: 24px;
+    margin-top: 24;
+    padding: 8px;
+    align-items: center;
+
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    background-color: darkgray;
+    width: 400px;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    flex-grow:1 ;
+    text-wrap: wrap;
+
+}
+
+.data {
+    margin-left: 8px;
+    background-color: rgb(255, 255, 255);
+    font-size: 24px;
+    flex-shrink: 1;
+    max-width:200px;
+    text-wrap: wrap;
+}
+
+#scoreBox{
+    background-color: darkgray;
+    min-height: 100px;
+    min-width: 200px;
+    display: flex;
+    border: solid;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+#mainer{
+    display:flex;
+    flex-direction: row;
+}
+
+#score {
+    font-size: 36px;
+}

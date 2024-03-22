@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="prime.css">
+</head>
+<body>
+    <div id="mainer">
+        <div id="main">
+            <div class="info"> You chose
+                <div class= "data" id="number"></div>
+            </div>
+            <div class = "info"> It is
+                <div class = "data" id="primacy"></div>
+            </div>
+            <div class="info"> Its factors are
+                <div class = "data" id="factors"></div>
+            </div>
+            <button class = "button">Reset</button>
+            <div>Click or press Spacebar</div>
+        </div>
+        <div id="scoreBox">
+            <div id="score"></div>
+        </div>
+    </div>
+
+
+
+
+
+<script>
+    /*const number = parseInt(prompt("Give me any number to check for primeness"))
+    var arr = []
+    const fail = "not prime."
+    const success = "prime."*/
+    var yourScore = 0;
+
+const prime = function(){
+
+    const number = parseInt(prompt("Give me any number to check for primeness"))
+    var arr = []
+    const fail = "not prime."
+    const success = "prime."
+    const complicated = "Not prime... it's complicated"
+
+    if (number === 0) {
+        mess = complicated
+        const oneMessage = document.createElement("div");
+        var fact = document.getElementById("factors")
+        //fact.appendChild(oneMessage);
+        fact.innerHTML = "INFINITE"
+    }
+    else if (number === 1){
+        mess = complicated;
+        const oneMessage = document.createElement("div");
+        var fact = document.getElementById("factors")
+        //fact.appendChild(oneMessage);
+        fact.innerHTML = ".... just 1"
+    }
+    
+    
+    else{
+
+
+        for(i=2;i<number;i++){
+            var int = number/i;
+            if(Number.isInteger(int)){
+                arr.push(` ${int}`);
+            }
+            //console.log(int);
+        }
+        arr.reverse();
+        console.log(arr);
+
+        if(arr.length === 0){
+            //alert(success);
+            //console.log(success)
+            var mess = success;
+
+        }
+        else{
+            //console.log(fail);
+            //alert(fail)
+            var mess = fail
+        }
+
+        var fact = document.getElementById("factors")
+        //fact.innerHTML = "This is where a possibly lafge array will go with no spaces just comaas and such";
+        if (arr.length === 0){
+            fact.innerHTML = "just 1 and itself."
+            yourScore += number
+        }
+        else{
+            fact.innerHTML = arr;
+            yourScore = 0;
+        }
+
+    }
+
+    console.log(mess)
+
+    var numb = document.getElementById("number")
+    numb.innerHTML = ` ${number}`
+
+    var prim = document.getElementById("primacy")
+    prim.innerHTML = mess
+
+    /*var fact = document.getElementById("factors")
+    //fact.innerHTML = "This is where a possibly lafge array will go with no spaces just comaas and such";
+    fact.innerHTML = arr;*/
+    score.innerHTML = `score: ${yourScore}`;
+}
+prime();
+
+const button = document.querySelector("button")
+button.addEventListener("click", prime);
+
+document.onkeydown = function (e) {
+    if (e.keyCode == 32){
+        button.click();
+    }
+}
+
+</script>
+
+</body>
+</html>
