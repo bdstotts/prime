@@ -8,7 +8,7 @@
 </head>
 <body>
     <div id="mainer">
-        <div id="main">
+        <div id="main" class="container">
             <div class="info"> You chose
                 <div class= "data" id="number"></div>
             </div>
@@ -21,11 +21,15 @@
             <button class = "button">Reset</button>
             <div>Click or press Spacebar</div>
         </div>
-        <div id="scoreBox">
+        <div id="scoreBox" class="container">
             <div id="score"></div>
+            <div id="chosenPrimes" class="container"></div>
+            <div id="streak" class="container"></div>
         </div>
     </div>
-
+<p>For each prime number you get, that number will be added to your score! Resetting will not reset your score,
+    but getting a non-prime number will. Try and get the highest score. 
+</p>
 
 
 
@@ -36,8 +40,12 @@
     const fail = "not prime."
     const success = "prime."*/
     var yourScore = 0;
+    var chosenPrimes = [];
 
 const prime = function(){
+    console.log(chosenPrimes)
+    
+    var streak = chosenPrimes.length;
 
     const number = parseInt(prompt("Give me any number to check for primeness"))
     var arr = []
@@ -59,6 +67,10 @@ const prime = function(){
         //fact.appendChild(oneMessage);
         fact.innerHTML = ".... just 1"
     }
+    else if(chosenPrimes.includes(number)){
+        alert("This number has already been selected, please try again");
+        mess = success;
+    }
     
     
     else{
@@ -69,20 +81,15 @@ const prime = function(){
             if(Number.isInteger(int)){
                 arr.push(` ${int}`);
             }
-            //console.log(int);
         }
         arr.reverse();
         console.log(arr);
 
         if(arr.length === 0){
-            //alert(success);
-            //console.log(success)
             var mess = success;
-
         }
         else{
-            //console.log(fail);
-            //alert(fail)
+        
             var mess = fail
         }
 
@@ -91,15 +98,23 @@ const prime = function(){
         if (arr.length === 0){
             fact.innerHTML = "just 1 and itself."
             yourScore += number
+            chosenPrimes.push(number);
+            streak = chosenPrimes.length;
+        }
+        else if(arr.length===1){
+            fact.innerHTML = `${arr}, it's a perfect square!`
+            yourScore = 0;
+            chosenPrimes = [];
+            streak = 0;
         }
         else{
             fact.innerHTML = arr;
             yourScore = 0;
+            chosenPrimes = []; 
+            streak = 0;
         }
 
     }
-
-    console.log(mess)
 
     var numb = document.getElementById("number")
     numb.innerHTML = ` ${number}`
@@ -107,9 +122,12 @@ const prime = function(){
     var prim = document.getElementById("primacy")
     prim.innerHTML = mess
 
-    /*var fact = document.getElementById("factors")
-    //fact.innerHTML = "This is where a possibly lafge array will go with no spaces just comaas and such";
-    fact.innerHTML = arr;*/
+    var streakBox = document.getElementById("streak");
+    streakBox.innerHTML = `Current streak: ${streak}`;
+
+    var primes = document.getElementById("chosenPrimes");
+    primes.innerHTML = `Streak primes: ${chosenPrimes}`;
+
     score.innerHTML = `score: ${yourScore}`;
 }
 prime();

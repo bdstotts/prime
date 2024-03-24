@@ -1,5 +1,5 @@
 .info {
-    background-color: lightgray;
+    background-color: rgb(174, 178, 241);
     display: flex;
     width: 300px;
     max-width: 300px;
@@ -7,32 +7,36 @@
     margin-top: 24;
     padding: 8px;
     align-items: center;
+    border-radius: 15px;
 
 }
 
-#main {
+.container {
     display: flex;
     flex-direction: column;
-    background-color: darkgray;
+    background-color: rgb(121, 142, 211);
     width: 400px;
     justify-content: center;
     align-items: center;
     padding: 12px;
     flex-grow:1 ;
     text-wrap: wrap;
+    border-radius: 25px;
+    border: solid rgb(95, 67, 221)
 
 }
 
 .data {
     margin-left: 8px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(189, 188, 255);
     font-size: 24px;
     flex-shrink: 1;
     max-width:200px;
     text-wrap: wrap;
+    border-radius: 5px;
 }
 
-#scoreBox{
+/*#scoreBox{
     background-color: darkgray;
     min-height: 100px;
     min-width: 200px;
@@ -41,7 +45,7 @@
     flex-grow: 1;
     align-items: center;
     justify-content: center;
-}
+}*/
 
 #mainer{
     display:flex;
@@ -50,4 +54,9 @@
 
 #score {
     font-size: 36px;
+    background-color: rgb(174, 178, 241);
+    border-radius: 15px;}
+
+.button{
+    border-radius: 10px;
 }
