@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="prime.css">
 </head>
 <body>
+    <div id="title">PRIME: the game</div>
+
+    <div class="container">
+        <p>Find prime numbers to add them to your score. Fail and your score resets.
+        </p>
+        <button class = "button">Enter a new Number</button>
+        <div>Click or press Spacebar</div>
+    </div>
+
     <div id="mainer">
         <div id="main" class="container">
             <div class="info"> You chose
@@ -18,27 +27,20 @@
             <div class="info"> Its factors are
                 <div class = "data" id="factors"></div>
             </div>
-            <button class = "button">Reset</button>
-            <div>Click or press Spacebar</div>
+           
         </div>
         <div id="scoreBox" class="container">
-            <div id="score"></div>
-            <div id="chosenPrimes" class="container"></div>
-            <div id="streak" class="container"></div>
+            <div id="score" class="data"></div>
+            <div id="streak" class="data"></div>
+            <div id="chosenPrimes" class="data"></div>
         </div>
     </div>
-<p>For each prime number you get, that number will be added to your score! Resetting will not reset your score,
-    but getting a non-prime number will. Try and get the highest score. 
-</p>
+
 
 
 
 
 <script>
-    /*const number = parseInt(prompt("Give me any number to check for primeness"))
-    var arr = []
-    const fail = "not prime."
-    const success = "prime."*/
     var yourScore = 0;
     var chosenPrimes = [];
 
@@ -47,31 +49,33 @@ const prime = function(){
     
     var streak = chosenPrimes.length;
 
-    const number = parseInt(prompt("Give me any number to check for primeness"))
+   const number = parseInt(prompt("Enter a number you think is prime."))
     var arr = []
     const fail = "not prime."
     const success = "prime."
     const complicated = "Not prime... it's complicated"
 
+
     if (number === 0) {
         mess = complicated
         const oneMessage = document.createElement("div");
         var fact = document.getElementById("factors")
-        //fact.appendChild(oneMessage);
+
         fact.innerHTML = "INFINITE"
     }
     else if (number === 1){
         mess = complicated;
         const oneMessage = document.createElement("div");
         var fact = document.getElementById("factors")
-        //fact.appendChild(oneMessage);
         fact.innerHTML = ".... just 1"
     }
     else if(chosenPrimes.includes(number)){
         alert("This number has already been selected, please try again");
         mess = success;
     }
-    
+    else if (isNaN(number)){
+        alert("This is not a number. Please try again.")
+    }
     
     else{
 
@@ -94,11 +98,11 @@ const prime = function(){
         }
 
         var fact = document.getElementById("factors")
-        //fact.innerHTML = "This is where a possibly lafge array will go with no spaces just comaas and such";
+    
         if (arr.length === 0){
             fact.innerHTML = "just 1 and itself."
             yourScore += number
-            chosenPrimes.push(number);
+            chosenPrimes.push(` ${number}`);
             streak = chosenPrimes.length;
         }
         else if(arr.length===1){
@@ -130,7 +134,7 @@ const prime = function(){
 
     score.innerHTML = `score: ${yourScore}`;
 }
-prime();
+//prime();
 
 const button = document.querySelector("button")
 button.addEventListener("click", prime);
